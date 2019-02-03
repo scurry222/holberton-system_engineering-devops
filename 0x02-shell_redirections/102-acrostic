@@ -1,2 +1,2 @@
 #!/bin/bash
-cut -c 1 acrostic | tr -d '\n' | paste -s -d ' '
+cut -c 1 acrostic | tr -d '\n' | rev | rev
