@@ -1,0 +1,2 @@
+#!/bin/bash
+echo $WATER | tr water 01234 | echo $((5#30012402303)) | tr stir. 01234 | echo $((5#124 21231313)) | echo $((29419078 + 15414583)) | printf "%o\n" 44834284 | tr 01234567 behlnort
