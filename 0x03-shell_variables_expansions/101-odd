@@ -1,2 +1,2 @@
 #!/bin/bash
-xargs -n2 -d'\n' | cut -d' ' --fields=2
+xargs -n2 | cut -d' ' --fields=1
