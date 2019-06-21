@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+# Use an until loop to display "Holberton School" 10 times
+
+i=0
+until [ $i -eq 10 ]; do
+      echo "Holberton School"
+      let i=i+1
+done
