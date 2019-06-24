@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+# Display user's pid
+echo $$
