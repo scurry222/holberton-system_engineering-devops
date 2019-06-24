@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+# Print "To infinity and beyond", unless kill process is executed,
+# Then print "I am invincible!!!"
+
+while :
+do
+	echo "To infinity and beyond"
+	sleep 2
+done
