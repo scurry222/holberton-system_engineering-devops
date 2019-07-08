@@ -1,0 +1,17 @@
+#!/usr/bin/env bash
+# Create a file 'holbertonscript.pid' with its PID
+# Display "To infinity and beyond" indefinitely
+# When SIGTERM signal is found, display "I hate the kill command"
+# When SIGINT signal is found, display "Y U no love me?!"
+# When SIGTERM is found, delete file and terminate
+
+sudo touch /var/run/holbertonscript.pid
+sudo bash -c 'echo $$ > /var/run/holbertonscript.pid'
+while :
+do
+	echo "To infinity and beyond"
+	sleep 2
+	trap 'echo "I hate the kill command"; sudo rm /var/run/holbertonscript.pid; exit' SIGTERM
+	trap 'echo "Y U no love me ?!"' SIGINT
+	trap 'sudo rm /var/run/holbertonscript.pid; exit' SIGQUIT
+done
