@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+# Configures an Nginx server so that /redirect_me is redirecting to another page
+apt-get -y update
+apt-get -y install nginx
+ufw allow 'Nginx HTTP'
+service nginx start
+echo "Ceci n'est pas une page" > /usr/share/nginx/html/custom_404.html
+sed -i 's/server_name _;/a error_page 404 /custom_404.html; location = /custom_404.html {root /usr/share/nginx/html;\n internal;}' /etc/nginx/sites-available/default
+service nginx reload

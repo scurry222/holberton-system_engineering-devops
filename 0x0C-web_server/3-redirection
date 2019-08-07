@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+# Configures an Nginx server so that /redirect_me is redirecting to another page
+apt-get -y update
+apt-get -y install nginx
+ufw allow 'Nginx HTTP'
+service nginx start
+var="rewrite ^/redirect_me https://www.youtube.com/ permanent;\n"
+sed -i 's/default_server\n/$var' /etc/nginx/sites-available/default
+service nginx reload
