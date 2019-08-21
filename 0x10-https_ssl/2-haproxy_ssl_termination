@@ -50,7 +50,7 @@ frontend www-http
 frontend www-https
         bind :443 ssl crt /etc/haproxy/ssl/www.holberton02cn0x.tech.pem
         reqadd X-Forwarded-Proto:\ https
-        default_backend web-backend
+        default_backend web-servers
 
 backend web-servers
         balance roundrobin
