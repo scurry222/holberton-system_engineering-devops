@@ -34,6 +34,7 @@ defaults
         errorfile 504 /etc/haproxy/errors/504.http
         listen holberton02cn0x
         bind :80
+        option forwardfor
 
 frontend http
         bind :80
@@ -48,9 +49,11 @@ frontend www-http
 
 frontend www-https
         bind :443 ssl crt /etc/haproxy/ssl/www.holberton02cn0x.tech.pem
+        reqadd X-Forwarded-Proto:\ https
         default_backend web-backend
 
 backend web-servers
         balance roundrobin
+        redirect scheme https if !{ ssl_fc }
         server 546-web-01 104.196.55.234:80 check
         server 546-web-02 35.229.108.9:80 check
