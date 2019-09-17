@@ -1,29 +1,22 @@
 #!/usr/bin/python3
 """ Given employee ID, returns information about TODO list progress """
 
-import json
-import requests
-from sys import argv
-
-
 if __name__ == '__main__':
 
-    users = "https://jsonplaceholder.typicode.com/users"
-    length = len(requests.get(users).json())
-    f_name = "todo_all_employees.json"
+    from requests import get
+    import json
 
-    all_todos = {}
+    d = {}
+    for user_id in range(1, 11):
+        user = get("https://jsonplaceholder.typicode.com/users/{}"
+                   .format(user_id))
+        name = user.json()
+        req = get("https://jsonplaceholder.typicode.com/todos?userId={}"
+                  .format(user_id))
+        todos = req.json()
 
-    with open(f_name, 'w') as f:
-        for user in range(1, length + 1):
-            u = requests.get(users + "/" + str(user))
-            name = u.json().get('username')
-            all_todos[user] = []
-            todos = "https://jsonplaceholder.typicode.com/todos?"
-            url = todos + str(user)
-            r = requests.get(url)
-            for task in r.json():
-                all_todos[user].append({"task": task.get('title'),
-                                        "completed": task.get('completed'),
-                                        "username": name})
-        json.dump(all_todos, f)
+        d[user_id] = [dict(task=todo['title'], completed=todo['completed'],
+                           username=name['username']) for todo in todos]
+
+    with open('todo_all_employees.json', 'w') as f:
+        f.write(json.dumps(d))
