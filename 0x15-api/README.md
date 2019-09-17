@@ -1,5 +1,7 @@
 # 0x15. API
 
+Using sample data to test different API setups, such as adding to different file formats and data selection.
+
 | Task                                  | File                                                                                                                                                                     | Description                                                                                                                                                         |
 |---------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | 0. Gather data from an API            | [0-gather_data_from_an_API.py](https://github.com/scurry222/holberton-system_engineering-devops/blob/master/0x15-api/0-gather_data_from_an_API.py)                       | A Python script that, using this  [REST API](https://jsonplaceholder.typicode.com/), for a given employee ID, returns information about his/her TODO list progress. |
