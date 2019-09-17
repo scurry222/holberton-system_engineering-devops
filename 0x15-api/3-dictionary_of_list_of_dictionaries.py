@@ -7,6 +7,7 @@ from sys import argv
 
 
 if __name__ == '__main__':
+
     users = "https://jsonplaceholder.typicode.com/users"
     length = len(requests.get(users).json())
     f_name = "todo_all_employees.json"

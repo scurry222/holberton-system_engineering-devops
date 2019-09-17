@@ -1,15 +1,12 @@
 #!/usr/bin/python3
 """ Given employee ID, returns information about TODO list progress """
 
-import json
 import requests
 from sys import argv
 import csv
 
 
 if __name__ == '__main__':
-    if len(argv) != 2:
-        exit(1)
 
     user = "https://jsonplaceholder.typicode.com/users/" + argv[1]
     name = requests.get(user).json().get('name')
