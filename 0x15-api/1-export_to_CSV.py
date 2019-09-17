@@ -8,14 +8,15 @@ if __name__ == '__main__':
     import csv
 
     f_name = argv[1] + ".csv"
+    user = requests.get("https://jsonplaceholder.typicode.com/users/{}"
+                        .format(argv[1]))
+    name = user.json()
+    req = requests.get("https://jsonplaceholder.typicode.com/todos?userId={}"
+                       .format(argv[1]))
+    todos = req.json()
 
     with open(f_name, 'w', newline='') as f:
-        user = requests.get("https://jsonplaceholder.typicode.com/users/{}"
-                            .format(argv[1]))
-        name = user.json().get('name')
-        req = "https://jsonplaceholder.typicode.com/todos?userId=" + argv[1]
-        request = requests.get(req)
         w = csv.writer(f, quoting=csv.QUOTE_ALL)
-        for req in request.json():
-            w.writerow([argv[1], name, str(req.get('completed')),
-                       req.get('title')])
+        for todo in todos:
+            w.writerow([name['id'], name['username'],
+                        todo['completed'], todo['title']])
