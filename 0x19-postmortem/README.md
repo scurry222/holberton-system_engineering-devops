@@ -7,7 +7,7 @@ This is a fake postmortem for the [0x17-web_stack_debugging](https://github.com/
 ## Timeline
 00:00 - Lead developer noticed webpage returning 500 error.
 
-00:02 - ticket 0x19 was opened by developer. Servers reverted to most recent working change until error was resolved.
+00:02 - ticket 0x19 was opened by developer. Servers reverted to most recent working change until error is resolved.
 
 00:06 - ticket was responded by junior developer Scout Curry.
 
@@ -25,3 +25,4 @@ This is a fake postmortem for the [0x17-web_stack_debugging](https://github.com/
 
 ## Corrective/Preventative measures
 Through unittests or testing code before pushing, this problem could have been avoided. Integrate pretesting before pushing code to production.
+Or, commit small changes so you can look though the change history easily on GitHub
