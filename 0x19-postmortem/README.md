@@ -1,5 +1,5 @@
 # 0x19. Postmortem
-This is a fake postmortem for the 0x17-web_stack_debugging_3 project, made for practice. 
+This is a fake postmortem for the [0x17-web_stack_debugging](https://github.com/scurry222/holberton-system_engineering-devops/tree/master/0x17-web_stack_debugging_3) project, made for practice. 
 
 ## Issue Summary 
 00:00 (10-01-2019, 12:11 am GMT-7) through 00:37 (10-01-2019, 12:48 am GMT-7) -  recently pushed server configuration led to all servers returning 500 error on all requests. This was caused by a mistype in the wordpress settings file. All users could not access the website while update was active.
