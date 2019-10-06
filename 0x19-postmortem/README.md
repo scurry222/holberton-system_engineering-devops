@@ -11,7 +11,7 @@ This is a fake postmortem for the [0x17-web_stack_debugging](https://github.com/
 
 00:06 - ticket was responded by junior developer Scout Curry.
 
-00:10 - `ps auxf` shown that processes are running. Tests with `strace` testing starts.
+00:10 - `ps auxf` shown that processes are running. Testing with attaching `strace` to process IDs starts.
 
 00:25 - after attaching `strace` to apache2 process and sending a simple get request to the server, one of the php files returned a `-1 ENOENT` error. The php file was referred to by `phpp`.
 
