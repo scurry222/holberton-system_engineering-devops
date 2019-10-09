@@ -1,0 +1,39 @@
+server {
+    listen 80 default_server;
+    root /usr/share/nginx/html;
+    index index.html;
+    add_header X-Served-By 546-web-01;
+
+    location / {
+        try_files $uri $uri/ =404;
+        proxy_pass http://localhost:5003/2-hbnb;
+
+        location /static {
+            proxy_pass http://localhost:5003/static;
+        }
+
+        location /scripts {
+            proxy_pass http://localhost:5003/static/scripts;
+        }
+    }
+
+    location /airbnb-dynamic/number_odd_or_even/ {
+         proxy_pass http://localhost:5001/number_odd_or_even/;
+    }
+
+    location /api/ {
+        proxy_pass http://localhost:5002/api/;
+    }
+
+    location /airbnb-onepage {
+         proxy_pass http://0.0.0.0:5000/airbnb-onepage;
+    }
+
+    location /redirect_me {
+         return 301 https://www.youtube.com;
+    }
+
+    location /hbnb_static {
+         alias /data/web_static/current;
+    }
+}
