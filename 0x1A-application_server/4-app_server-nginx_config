@@ -22,7 +22,7 @@ server {
     }
 
     location /api/ {
-        proxy_pass http://localhost:5002/api/;
+        proxy_pass http://localhost:5002;
     }
 
     location /airbnb-onepage {
